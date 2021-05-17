@@ -16,7 +16,10 @@ class Stack {
 public:
     Stack() : next(0) { }
     void push(int n) { data[next++] = n; }
-    void pop() { --next; }
+    void pop() {
+        if (empty()) return;
+        --next;
+    }
     int top() const { return data[next-1]; }
     bool empty() const { return next <= 0; }
 private:
